@@ -12,6 +12,7 @@ def dns_spoof(pkt):
         # print 'Sent to (', spoofed_pkt[IP].dst, '):', spoofed_pkt.summary()
 
 
-# Make it works for localhost:
-conf.L3socket = L3RawSocket
-sniff(filter='udp port 53', iface='wlan3', store=0, prn=dns_spoof)
+if __name__ == '__main__':
+    # Make it works for localhost:
+    conf.L3socket = L3RawSocket
+    sniff(filter='udp port 53', iface='wlan3', store=0, prn=dns_spoof)
